@@ -1,17 +1,21 @@
 package net.skhu.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
 @Data
 @Entity
 public class Member {
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
    @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    int mem_idx;
 
    String mem_userid;
@@ -21,4 +25,6 @@ public class Member {
    int mem_gender;
    String mem_address;
 
+   @OneToMany(mappedBy="member")
+   List<Schedule> schedules;
 }

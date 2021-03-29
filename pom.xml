@@ -10,7 +10,7 @@
       <relativePath /> <!-- lookup parent from repository -->
    </parent>
    <groupId>net.skhu</groupId>
-   <artifactId>androidTest</artifactId>
+   <artifactId>member_backend</artifactId>
    <version>0.0.1-SNAPSHOT</version>
    <packaging>war</packaging>
    <name>androidTest</name>
