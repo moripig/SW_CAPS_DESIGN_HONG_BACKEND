@@ -25,11 +25,7 @@ public class MemberController {
       model.addAttribute("members", members);
       return "member/list";
    }
-   @RequestMapping("list1")
-   public String list1(Model model) {
-	   model.addAttribute("members",memberRepository.findAll());
-	   return "member/list1";
-   }
+
    @GetMapping("create")
    public String create(Model model) {
       Member member = new Member();

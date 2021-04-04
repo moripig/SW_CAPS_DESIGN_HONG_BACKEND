@@ -2,6 +2,7 @@ package net.skhu.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,6 @@ public class Member {
    int mem_gender;
    String mem_address;
 
-   @OneToMany(mappedBy="member")
+   @OneToMany(mappedBy="member",cascade=CascadeType.ALL)
    List<Schedule> schedules;
 }
