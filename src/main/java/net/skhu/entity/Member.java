@@ -28,4 +28,7 @@ public class Member {
 
    @OneToMany(mappedBy="member",cascade=CascadeType.ALL)
    List<Schedule> schedules;
+
+   @OneToMany(mappedBy="member",cascade=CascadeType.ALL)
+   List<Board> boards;
 }
