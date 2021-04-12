@@ -21,6 +21,7 @@ public class MemberData {
     private String mem_address;
     private int mem_idx;
 
+
     public MemberData(Member member) {
         this.mem_userid = member.getMem_userid();
         this.mem_email = member.getMem_email();
