@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
@@ -28,7 +31,13 @@ public class Member {
 
    @OneToMany(mappedBy="member",cascade=CascadeType.ALL)
    List<Schedule> schedules;
-
    @OneToMany(mappedBy="member",cascade=CascadeType.ALL)
    List<Board> boards;
+
+   @ManyToMany
+   @JoinTable(name = "users_roles",
+     joinColumns = @JoinColumn(name = "user_id"),
+     inverseJoinColumns = @JoinColumn(name = "role_id")
+   )
+   private List<Role> roles;
 }

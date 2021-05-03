@@ -41,7 +41,7 @@ public class MemberController {
 
    @GetMapping("edit")
    public String edit(Model model, @RequestParam("mem_idx") int mem_idx) {
-      Member member = memberRepository.findById(mem_idx).get();
+      Member member = memberRepository.findById((long) mem_idx).get();
       model.addAttribute("member", member);
       return "member/edit";
    }
@@ -54,7 +54,7 @@ public class MemberController {
 
    @RequestMapping("delete")
    public String delete(Model model, @RequestParam("mem_idx") int mem_idx) {
-      memberRepository.deleteById(mem_idx);
+      memberRepository.deleteById((long) mem_idx);
       return "redirect:list";
    }
 
