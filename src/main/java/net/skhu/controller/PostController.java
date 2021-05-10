@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @ResponseBody
@@ -82,11 +83,12 @@ public class PostController {
     }
 
     @PostMapping(path = "/posttest")
-    public void test() {
-//        System.out.println(postRequest.getTitle());
-//        System.out.println(postRequest.getBody());
+    public void test(@RequestBody Post post) {
+        System.out.println(post + "\n");
 
-        System.out.println("연결확인");
+        postService.creatPost(post);
+
+
     }
 
 }
