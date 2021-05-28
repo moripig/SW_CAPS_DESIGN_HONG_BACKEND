@@ -32,7 +32,21 @@ public class PostController {
     //전체
     @GetMapping(path = "/")
     public List<PostData> board() {
+
         List<Post> list = postService.allPost();
+        List<PostData> board = new ArrayList<>();
+
+        for(int i=0; i<list.size(); i++) {
+            PostData postData = new PostData(list.get(i));
+            board.add(postData);
+        }
+        return board;
+    }
+
+    //제목으로 검색 시
+    @GetMapping(path = "/title/{title}")
+    public List<PostData> searchTitle(@PathVariable("title") String title) {
+        List<Post> list = postService.searchTitle(title);
         List<PostData> board = new ArrayList<>();
 
         for(int i=0; i<list.size(); i++) {
@@ -51,44 +65,24 @@ public class PostController {
         return board;
     }
 
-    //제목으로 검색 시
-    @GetMapping(path = "/title/{title}")
-    public List<PostData> searchTitle(@PathVariable("title") String title) {
-        List<Post> list = postService.searchTitle(title);
-        List<PostData> board = new ArrayList<>();
-
-        for(int i=0; i<list.size(); i++) {
-            PostData postData = new PostData(list.get(i));
-            board.add(postData);
-        }
-        return board;
-    }
-    //생성하기 - 미완성
-//    @GetMapping(path = "/create/{id}/{title}/{body}")
-//    public void addPost(@PathVariable("id") int id, @PathVariable("title") String title, @PathVariable("body") String body) {
-//        Post post = new Post();
-//        post.setId(id);
-//        post.setTitle(title);
-//        post.setBody(body);
-//        postService.creatPost(post);
-//    }
-
-    @GetMapping(path = "/create/{post}")
-    public void addPost(@PathVariable("post") PostRequest postRequest) {
-//        Post post = new Post();
-//        post.setId(id);
-//        post.setTitle(title);
-//        post.setBody(body);
-//        postService.creatPost(post);
-    }
-
-    @PostMapping(path = "/posttest")
+    @PostMapping(path = "/create")
     public void test(@RequestBody Post post) {
         System.out.println(post + "\n");
-
         postService.creatPost(post);
-
-
     }
 
+    @PostMapping("/edit")
+    public void editPost(@RequestBody Post post) {
+        postService.changePost(post);
+    }
+
+    @PostMapping("/delete")
+    public void deletePost(@RequestBody int id) {
+        postService.deltePost(id);
+    }
+
+    @GetMapping(path = "/topid")
+    public void testte() {
+        System.out.println(postService.searchNextId());
+    }
 }
