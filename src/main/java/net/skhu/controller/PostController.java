@@ -11,6 +11,8 @@ import net.skhu.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +33,14 @@ public class PostController {
 
     //전체
     @GetMapping(path = "/")
-    public List<PostData> board() {
-
-        List<Post> list = postService.allPost();
+    public List<PostData> board(@PageableDefault(size=6,sort="id",direction=Sort.Direction.DESC) Pageable pageable) {
+//        List<Post> list = postService.allPost();
+        Page<Post> list = postService.allPost(pageable);
         List<PostData> board = new ArrayList<>();
 
-        for(int i=0; i<list.size(); i++) {
-            PostData postData = new PostData(list.get(i));
+
+        for(int i=0; i<list.getNumberOfElements(); i++) {
+            PostData postData = new PostData(list.getContent().get(i));
             board.add(postData);
         }
         return board;
@@ -45,14 +48,16 @@ public class PostController {
 
     //제목으로 검색 시
     @GetMapping(path = "/title/{title}")
-    public List<PostData> searchTitle(@PathVariable("title") String title) {
-        List<Post> list = postService.searchTitle(title);
+    public List<PostData> searchTitle(@PathVariable("title") String title, @PageableDefault(size=6,sort="id",direction=Sort.Direction.DESC) Pageable pageable) {
+        //List<Post> list = postService.searchTitle(title);
+        Page<Post> list = postService.searchTitle(title,pageable);
         List<PostData> board = new ArrayList<>();
 
-        for(int i=0; i<list.size(); i++) {
-            PostData postData = new PostData(list.get(i));
+        for(int i=0; i<list.getNumberOfElements(); i++) {
+            PostData postData = new PostData(list.getContent().get(i));
             board.add(postData);
         }
+
         return board;
     }
 
@@ -81,8 +86,4 @@ public class PostController {
         postService.deltePost(id);
     }
 
-    @GetMapping(path = "/topid")
-    public void testte() {
-        System.out.println(postService.searchNextId());
-    }
 }

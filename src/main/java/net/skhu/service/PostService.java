@@ -18,20 +18,22 @@ public class PostService {
     PostRepository postRepository;
 
     //전부
-    public List<Post> allPost() {
-        return postRepository.findAll();
+    public Page<Post> allPost(Pageable pageable) {
+        return postRepository.findAll(pageable);
     }
 
-    //생성 - 미완
+    //검색기능, 제목으로 검색
+    public Page<Post> searchTitle(String title, Pageable pageable) {
+        return postRepository.findAllByTitleContaining(title, pageable);
+    }
+
+    //생성
     public void creatPost(Post post) {
         post.setId((postRepository.max().intValue())+1);
         postRepository.save(post);
     }
 
-    //검색기능, 제목으로 검색
-    public List<Post> searchTitle(String title) {
-        return postRepository.findAllByTitleContaining(title);
-    }
+
 
     //id로 게시글 불러오기(선택시 사용)
     public Post searchId(int id) {
@@ -58,11 +60,6 @@ public class PostService {
 
     public void deltePost(int id) {
         postRepository.delete(postRepository.findById(id));
-    }
-
-    public BigDecimal searchNextId() {
-//        return postRepository.findByOrderById(Sort.by(Sort.Direction.ASC, "id"));
-        return postRepository.max();
     }
 
 }
