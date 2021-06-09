@@ -18,7 +18,7 @@ public class Member {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    int mem_idx;
 
-   String mem_userid;
+   String userid;
    String mem_email;
    String mem_password;
    String mem_username;

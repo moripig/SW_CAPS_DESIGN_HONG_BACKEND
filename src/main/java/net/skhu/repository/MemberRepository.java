@@ -7,7 +7,7 @@ import net.skhu.entity.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 
-	Member findByUsername(String androidID);
+	Member findByUserid(String Userid);
 
 
 }
