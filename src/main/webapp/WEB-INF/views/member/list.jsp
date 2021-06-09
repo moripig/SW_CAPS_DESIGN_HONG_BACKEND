@@ -33,7 +33,7 @@
       <c:forEach var="member" items="${ members }">
         <tr data-url="edit?mem_idx=${ member.mem_idx }">
         <td>${ member.mem_idx }</td>
-          <td>${ member.mem_userid }</td>
+          <td>${ member.userid }</td>
           <td>${ member.mem_email}</td>
           <td>${ member.mem_password }</td>
           <td>${ member.mem_username }</td>

@@ -27,7 +27,7 @@ public class AndroidController {
 				String androidPW = request.getParameter("pw");
 				System.out.println("안드로이드에서 받아온 id : " + androidID);
 				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
-				Member member = memberRepository.findByUsername(androidID);
+				Member member = memberRepository.findByUserid(androidID);
 				if(member.getMem_password().equals(androidPW))
 					model.addAttribute("member", member);
 				else {
@@ -48,7 +48,7 @@ public class AndroidController {
 				String androidPW = request.getParameter("pw");
 				System.out.println("안드로이드에서 받아온 id : " + androidID);
 				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
-				Member member = memberRepository.findByUsername(androidID);
+				Member member = memberRepository.findByUserid(androidID);
 				if(member.getMem_password()==androidPW)
 					model.addAttribute("member", member);
 				else {
@@ -73,11 +73,11 @@ public class AndroidController {
 				String androidADDRESS = request.getParameter("address");
 				System.out.println("안드로이드에서 받아온 id : " + androidID);
 				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
-				Member member = memberRepository.findByUsername(androidID);
+				Member member = memberRepository.findByUserid(androidID);
 
 				if(member == null) {
 					Member newMember = new Member();
-					newMember.setMem_userid(androidID);
+					newMember.setUserid(androidID);
 					newMember.setMem_password(androidPW);
 					newMember.setMem_username(androidNAME);
 					newMember.setMem_gender(Integer.parseInt(androidSEX));

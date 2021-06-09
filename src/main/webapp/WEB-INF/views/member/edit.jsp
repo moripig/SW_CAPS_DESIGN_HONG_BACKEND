@@ -30,7 +30,7 @@
       </tr>
       <tr>
         <td>아이디:</td>
-        <td><form:input path="mem_userid" /></td>        
+        <td><form:input path="userid" /></td>        
       </tr>
       <tr>
         <td>비밀번호:</td>
