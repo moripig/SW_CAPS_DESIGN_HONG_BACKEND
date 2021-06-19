@@ -35,8 +35,8 @@ public class BoardController {
 		return "board/list";
 	}
 	@GetMapping("content")
-	public String content(Model model,@RequestParam("board_idx") int board_idx) {
-		Board board = boardRepository.findById(board_idx).get();
+	public String content(Model model,@RequestParam("idx") int idx) {
+		Board board = boardRepository.findById(idx).get();
 		List<Comment> comments = commentRepository.findAll();
 		model.addAttribute("board",board);
 		model.addAttribute("comments",comments);
@@ -49,9 +49,9 @@ public class BoardController {
 	}
 
 	@GetMapping("create")
-	public String create(Model model,@RequestParam("mem_idx") int mem_idx) {
+	public String create(Model model,@RequestParam("idx") int idx) {
 		Board board = new Board();
-		Member member = memberRepository.findById(mem_idx).get();
+		Member member = memberRepository.findById(idx).get();
 		board.setMember(member);
 		model.addAttribute("member",member);
 		model.addAttribute("board",board);
@@ -65,8 +65,8 @@ public class BoardController {
 	}
 
 	@GetMapping("edit")
-	public String edit(Model model, @RequestParam("board_idx") int board_idx) {
-		Board board = boardRepository.findById(board_idx).get();
+	public String edit(Model model, @RequestParam("idx") int idx) {
+		Board board = boardRepository.findById(idx).get();
 		model.addAttribute("board", board);
 		model.addAttribute("member",board.getMember());
 		return "board/edit";
@@ -79,8 +79,8 @@ public class BoardController {
 	}
 
 	@RequestMapping("delete")
-	public String delete(Model model, @RequestParam("board_idx") int board_idx) {
-		boardRepository.deleteById(board_idx);
+	public String delete(Model model, @RequestParam("idx") int idx) {
+		boardRepository.deleteById(idx);
 		return "redirect:list";
 	}
 

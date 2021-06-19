@@ -33,9 +33,9 @@ public class CommentController {
     }
 
     @GetMapping("create")
-    public String create(Model model,@RequestParam("board_idx") int board_idx) {
+    public String create(Model model,@RequestParam("idx") int idx) {
         Comment comment = new Comment();
-        Board board = boardRepository.findById(board_idx).get();
+        Board board = boardRepository.findById(idx).get();
         comment.setBoard(board);
         comment.setMember(board.getMember());
         model.addAttribute("comment",comment);
@@ -51,8 +51,8 @@ public class CommentController {
     }
 
     @GetMapping("edit")
-    public String edit(Model model, @RequestParam("comm_idx") int comm_idx) {
-        Comment comment = commentRepository.findById(comm_idx).get();
+    public String edit(Model model, @RequestParam("idx") int idx) {
+        Comment comment = commentRepository.findById(idx).get();
         model.addAttribute("comment", comment);
         model.addAttribute("board",comment.getBoard());
         return "comment/edit";
@@ -65,8 +65,8 @@ public class CommentController {
     }
 
     @RequestMapping("delete")
-    public String delete(Model model, @RequestParam("comm_idx") int comm_idx) {
-        commentRepository.deleteById(comm_idx);
+    public String delete(Model model, @RequestParam("idx") int idx) {
+        commentRepository.deleteById(idx);
         return "redirect:list";
     }
 

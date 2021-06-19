@@ -2,6 +2,7 @@ package net.skhu.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,11 +19,17 @@ import lombok.Data;
 public class Board {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int board_idx;
+	@Column(name = "board_idx")
+	int idx;
 
-	String board_title;
-	String board_content;
-	String board_date;
+	@Column(name = "board_title")
+	String title;
+
+	@Column(name = "board_content")
+	String content;
+
+	@Column(name = "board_date")
+	String date;
 
 
 	@ManyToOne

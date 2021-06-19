@@ -26,7 +26,7 @@ td:nth-child(1), td:nth-child(5) {
 <body>
 	<form:form modelAttribute="board">
 		<div class="container">
-			<h1>${board.board_idx}- ${ board.board_title }</h1>
+			<h1>${board.idx}- ${ board.title }</h1>
 			<a href="create" class="btn">새글 등록</a>
 
 			<table class="list">
@@ -40,13 +40,14 @@ td:nth-child(1), td:nth-child(5) {
 				</thead>
 				<tbody>
 					<tr>
-						<td>${ board.board_content}</td>
-						<td>${ board.board_date }</td>
-						<td>${ board.member.mem_idx }</td>
+						<td>${ board.content}</td>
+						<td>${ board.date }</td>
+						<td>${ board.member.idx }</td>
 					</tr>
 				</tbody>
 
 			</table>
+			<h1>댓글</h1>
 			<table class="list">
 				<thead>
 					<tr>
@@ -60,18 +61,18 @@ td:nth-child(1), td:nth-child(5) {
 				<tbody>
 					<c:forEach var="comment" items="${ board.comments }">
 						<tr>
-							<td>${ comment.comm_idx}</td>
-							<td>${ comment.comm_content }</td>
-							<td>${ comment.comm_date}</td>
-							<td>${ comment.member.mem_username }</td>
+							<td>${ comment.idx}</td>
+							<td>${ comment.content }</td>
+							<td>${ comment.date}</td>
+							<td>${ comment.member.username }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 		<div>
-			<a href="/comment/create?board_idx=${ board.board_idx }" class="btn">댓글 달기</a>
-			<a href="edit?board_idx=${ board.board_idx }" class="btn">수정</a> 
+			<a href="/comment/create?idx=${ board.idx }" class="btn">댓글 달기</a>
+			<a href="edit?idx=${ board.idx }" class="btn">수정</a> 
 			<a href="list" class="btn">목록으로</a>
 		</div>
 	</form:form>

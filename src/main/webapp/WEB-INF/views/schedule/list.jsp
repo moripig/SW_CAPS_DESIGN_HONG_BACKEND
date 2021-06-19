@@ -15,8 +15,8 @@
 	<div class="container">
 		<h1>일정목록</h1>
 		<c:forEach var="member" items="${ members }">
-			<h3>${ member.mem_idx }- ${ member.mem_username }</h3>
-			<a href="create?mem_idx=${member.mem_idx }" class="btn">일정등록</a>
+			<h3>${ member.idx }- ${ member.username }</h3>
+			<a href="create?idx=${member.idx }" class="btn">일정등록</a>
 			<table class="list">
 				<thead>
 					<tr>
@@ -30,13 +30,13 @@
 				</thead>
 				<tbody>
 					<c:forEach var="schedule" items="${ member.schedules }">
-						<tr data-url="edit?sche_idx=${ schedule.sche_idx }">
-							<td>${ schedule.sche_idx }</td>
-							<td>${ schedule.sche_start }</td>
-							<td>${ schedule.sche_end }</td>
-							<td>${ schedule.sche_loca }</td>
-							<td>${ schedule.sche_num }</td>
-							<td>${ shcedule.member.mem_idx }</td>
+						<tr data-url="edit?idx=${ schedule.idx }">
+							<td>${ schedule.idx }</td>
+							<td>${ schedule.start }</td>
+							<td>${ schedule.end }</td>
+							<td>${ schedule.loca }</td>
+							<td>${ schedule.num }</td>
+							<td>${ shcedule.member.idx }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

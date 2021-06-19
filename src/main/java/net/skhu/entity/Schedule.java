@@ -2,6 +2,7 @@ package net.skhu.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,12 +18,20 @@ public class Schedule {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   int sche_idx;
+   @Column(name = "sche_idx")
+   int idx;
 
-   Date sche_start;
-   Date sche_end;
-   String sche_loca;
-   int sche_num;
+   @Column(name = "sche_start")
+   Date start;
+
+   @Column(name = "sche_end")
+   Date end;
+
+   @Column(name = "sche_loca")
+   String loca;
+
+   @Column(name = "sche_num")
+   int num;
 
    @ManyToOne
    @JoinColumn(name = "memberId", referencedColumnName="mem_idx")

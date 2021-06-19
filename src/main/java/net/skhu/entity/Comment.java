@@ -1,5 +1,6 @@
 package net.skhu.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,10 +16,14 @@ import lombok.Data;
 public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int comm_idx;
+	@Column(name = "comm_idx")
+	int idx;
 
-	String comm_content;
-	String comm_date;
+	@Column(name = "comm_content")
+	String content;
+
+	@Column(name = "comm_date")
+	String date;
 
 
 	@ManyToOne(fetch = FetchType.LAZY)

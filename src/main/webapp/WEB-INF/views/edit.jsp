@@ -49,13 +49,13 @@ button {
 			<div>
 				<table>
 					<tr>
-						<td>${ member.mem_idx }</td>
-						<td>${ member.mem_userid }</td>
-						<td>${ member.mem_email}</td>
-						<td>${ member.mem_password }</td>
-						<td>${ member.mem_username }</td>
-						<td>${ member.mem_gender }</td>
-						<td>${ member.mem_address }</td>
+						<td>${ member.idx }</td>
+						<td>${ member.userId }</td>
+						<td>${ member.email}</td>
+						<td>${ member.password }</td>
+						<td>${ member.userName }</td>
+						<td>${ member.gender }</td>
+						<td>${ member.saddress }</td>
 					</tr>
 				</table>
 			</div>

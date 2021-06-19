@@ -26,8 +26,8 @@ td:nth-child(1), td:nth-child(5) {
 	<div class="container">
 		<h1>게시판</h1>
 		<c:forEach var="member" items="${ members }">
-		<h3>${ member.mem_idx }- ${ member.mem_username }</h3>
-		<a href="create?mem_idx=${member.mem_idx }" class="btn">새 글</a>
+		<h3>${ member.idx }- ${ member.username }</h3>
+		<a href="create?idx=${member.idx }" class="btn">새 글</a>
 		</c:forEach>
 		<table class="list">
 			<thead>
@@ -40,11 +40,11 @@ td:nth-child(1), td:nth-child(5) {
 			</thead>
 			<tbody>
 				<c:forEach var="board" items="${ boards }">
-					<tr data-url="content?board_idx=${ board.board_idx }">
-						<td>${ board.board_idx }</td>
-						<td>${ board.board_title }</td>
-						<td>${ board.board_date }</td>
-						<td>${ board.member.mem_username}</td>
+					<tr data-url="content?idx=${ board.idx }">
+						<td>${ board.idx }</td>
+						<td>${ board.title }</td>
+						<td>${ board.date }</td>
+						<td>${ board.member.username}</td>
 						
 					</tr>
 				</c:forEach>

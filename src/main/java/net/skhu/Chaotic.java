@@ -28,8 +28,8 @@ public class Chaotic {
 		map.put(new Date(),0);
 
 		for(int i=0; i < scheduleList.size();i++) {
-			Date start= scheduleList.get(i).getSche_start();
-			Date end = scheduleList.get(i).getSche_end();
+			Date start= scheduleList.get(i).getStart();
+			Date end = scheduleList.get(i).getEnd();
 			cal.setTime(start);
 
 			for(int j = 0  ;j<= start.compareTo(end);j++) {

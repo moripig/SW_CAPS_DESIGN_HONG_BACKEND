@@ -2,6 +2,7 @@ package net.skhu.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,14 +17,26 @@ public class Member {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   int mem_idx;
+   @Column(name = "mem_idx")
+   int idx;
 
+   @Column(name = "mem_userid")
    String userid;
-   String mem_email;
-   String mem_password;
-   String mem_username;
-   int mem_gender;
-   String mem_address;
+
+   @Column(name = "mem_email")
+   String email;
+
+   @Column(name = "mem_password")
+   String password;
+
+   @Column(name = "mem_username")
+   String username;
+
+   @Column(name = "mem_gender")
+   int gender;
+
+   @Column(name = "mem_address")
+   String address;
 
    @OneToMany(mappedBy="member")
    List<Schedule> schedules;

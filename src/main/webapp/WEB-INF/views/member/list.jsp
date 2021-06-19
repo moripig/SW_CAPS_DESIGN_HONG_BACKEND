@@ -31,14 +31,14 @@
     </thead>
     <tbody>
       <c:forEach var="member" items="${ members }">
-        <tr data-url="edit?mem_idx=${ member.mem_idx }">
-        <td>${ member.mem_idx }</td>
+        <tr data-url="edit?idx=${ member.idx }">
+        <td>${ member.idx }</td>
           <td>${ member.userid }</td>
-          <td>${ member.mem_email}</td>
-          <td>${ member.mem_password }</td>
-          <td>${ member.mem_username }</td>
-          <td>${ member.mem_gender }</td>
-          <td>${ member.mem_address }</td>
+          <td>${ member.email}</td>
+          <td>${ member.password }</td>
+          <td>${ member.username }</td>
+          <td>${ member.gender }</td>
+          <td>${ member.address }</td>
         </tr>
       </c:forEach>
     </tbody>

@@ -25,10 +25,8 @@ public class AndroidController {
 		try{
 				String androidID = request.getParameter("id");
 				String androidPW = request.getParameter("pw");
-				System.out.println("안드로이드에서 받아온 id : " + androidID);
-				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
 				Member member = memberRepository.findByUserid(androidID);
-				if(member.getMem_password().equals(androidPW))
+				if(member.getPassword().equals(androidPW))
 					model.addAttribute("member", member);
 				else {
 					return "로그인 오류";
@@ -46,10 +44,8 @@ public class AndroidController {
 		try{
 				String androidID = request.getParameter("id");
 				String androidPW = request.getParameter("pw");
-				System.out.println("안드로이드에서 받아온 id : " + androidID);
-				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
 				Member member = memberRepository.findByUserid(androidID);
-				if(member.getMem_password()==androidPW)
+				if(member.getPassword()==androidPW)
 					model.addAttribute("member", member);
 				else {
 					return "로그인 오류";
@@ -71,18 +67,16 @@ public class AndroidController {
 				String androidEMAIL = request.getParameter("email");
 				String androidSEX = request.getParameter("sex");
 				String androidADDRESS = request.getParameter("address");
-				System.out.println("안드로이드에서 받아온 id : " + androidID);
-				System.out.println("안드로이드에서 받아온 pw : " + androidPW);
 				Member member = memberRepository.findByUserid(androidID);
 
 				if(member == null) {
 					Member newMember = new Member();
 					newMember.setUserid(androidID);
-					newMember.setMem_password(androidPW);
-					newMember.setMem_username(androidNAME);
-					newMember.setMem_gender(Integer.parseInt(androidSEX));
-					newMember.setMem_email(androidEMAIL);
-					newMember.setMem_address(androidADDRESS);
+					newMember.setPassword(androidPW);
+					newMember.setUsername(androidNAME);
+					newMember.setGender(Integer.parseInt(androidSEX));
+					newMember.setEmail(androidEMAIL);
+					newMember.setAddress(androidADDRESS);
 					memberRepository.save(member);
 				}
 				else {

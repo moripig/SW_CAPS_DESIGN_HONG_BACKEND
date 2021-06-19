@@ -27,8 +27,8 @@ td:nth-child(1), td:nth-child(5) {
 		<h1>게시판</h1>
 		
 		<c:forEach var="board" items="${ boards }">
-		<h3>${ board.board_idx }- ${ board.board_title }</h3>
-		<a href="/board/content?board_idx=${board.board_idx}" class="btn">게시판 가기</a>
+		<h3>${ board.idx }- ${ board.title }</h3>
+		<a href="/board/content?idx=${board.idx}" class="btn">게시판 가기</a>
 		<table class="list">
 			<thead>
 				<tr>
@@ -42,11 +42,11 @@ td:nth-child(1), td:nth-child(5) {
 			<tbody>
 				<c:forEach var="comment" items="${ board.comments }">
 				<tr>
-					<td><a href="edit?comm_idx=${ comment.comm_idx }" >수정</a></td>
-						<td>${ comment.comm_idx }</td>
-						<td>${ comment.comm_content }</td>
-						<td>${ comment.comm_date }</td>
-						<td>${ comment.member.mem_idx }</td>
+					<td><a href="edit?idx=${ comment.idx }" >수정</a></td>
+						<td>${ comment.idx }</td>
+						<td>${ comment.content }</td>
+						<td>${ comment.date }</td>
+						<td>${ comment.member.idx }</td>
 						
 					</tr>
 				</c:forEach>

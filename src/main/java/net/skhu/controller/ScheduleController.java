@@ -29,9 +29,9 @@ public class ScheduleController {
 	}
 
 	@GetMapping("create")
-	public String create(Model model,@RequestParam("mem_idx") int mem_idx) {
+	public String create(Model model,@RequestParam("idx") int idx) {
 		Schedule schedule = new Schedule();
-		Member member = memberRepository.findById(mem_idx).get();
+		Member member = memberRepository.findById(idx).get();
 		schedule.setMember(member);
 		model.addAttribute("member",member);
 		model.addAttribute("schedule",schedule);
@@ -45,8 +45,8 @@ public class ScheduleController {
 	}
 
 	@GetMapping("edit")
-	public String edit(Model model, @RequestParam("sche_idx") int sche_idx) {
-		Schedule schedule = scheduleRepository.findById(sche_idx).get();
+	public String edit(Model model, @RequestParam("idx") int idx) {
+		Schedule schedule = scheduleRepository.findById(idx).get();
 		model.addAttribute("schedule", schedule);
 		return "schedule/edit";
 	}
@@ -58,8 +58,8 @@ public class ScheduleController {
 	}
 
 	@RequestMapping("delete")
-	public String delete(Model model, @RequestParam("shce_idx") int sche_idx) {
-		scheduleRepository.deleteById(sche_idx);
+	public String delete(Model model, @RequestParam("idx") int idx) {
+		scheduleRepository.deleteById(idx);
 		return "redirect:list";
 	}
 

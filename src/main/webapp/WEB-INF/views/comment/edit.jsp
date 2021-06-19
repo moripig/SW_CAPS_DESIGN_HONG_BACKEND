@@ -29,34 +29,34 @@
 <body>
 <div class="container">
   <form:form method="post" modelAttribute="comment">
-    <div class="title">글 ${ comment.comm_idx > 0  ? "수정" : "등록" }</div>
+    <div class="title">글 ${ comment.idx > 0  ? "수정" : "등록" }</div>
     <table>
          <tr>
      	
         <td>멤버index:</td>
-        <td><form:input path="member.mem_idx" /></td> 
+        <td><form:input path="member.idx" /></td> 
         </tr>  
           <tr>
         <td>게시판 작성자:</td>
-        <td><form:input path="board.board_idx" /> </td>
+        <td><form:input path="board.idx" /> </td>
       </tr>
      <tr>
      
      	
         <td>index:</td>
-        <td><form:input path="comm_idx" disabled="true" /></td> 
+        <td><form:input path="idx" disabled="true" /></td> 
         </tr>    
          <tr>
         <td>작성자:</td>
-        <td><form:input path="member.mem_username" disabled="true" /></td>        
+        <td><form:input path="member.username" disabled="true" /></td>        
       </tr>   
       <tr>
         <td>내용:</td>
-        <td><form:textarea path="comm_content" /></td>
+        <td><form:textarea path="content" /></td>
       </tr>
       <tr>
         <td>시간:</td>
-        <td><form:input path="comm_date" value="<%= date %>"/></td>
+        <td><form:input path="date" value="<%= date %>"/></td>
       </tr>
       
 
@@ -65,8 +65,8 @@
     <hr />
     <div>
       <button type="submit" class="btn">저장</button>
-      <c:if test="${ board.board_idx > 0 }">
-        <a href="delete?board_idx=${ board.board_idx }" class="btn" data-confirm-delete>삭제</a>
+      <c:if test="${ board.idx > 0 }">
+        <a href="delete?idx=${ board.idx }" class="btn" data-confirm-delete>삭제</a>
       </c:if>
       <a href="list" class="btn">목록으로</a>
     </div>

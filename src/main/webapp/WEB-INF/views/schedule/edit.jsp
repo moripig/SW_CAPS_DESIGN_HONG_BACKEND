@@ -22,39 +22,39 @@
 <body>
 <div class="container">
   <form:form method="post" modelAttribute="schedule">
-    <div class="title">회원 ${ schedule.sche_idx > 0  ? "수정" : "등록" }</div>
+    <div class="title">회원 ${ schedule.idx > 0  ? "수정" : "등록" }</div>
     <table>
      <tr>
         <td>회원index:</td>
-        <td><form:input path="member.mem_idx" value="${ schedule.member.mem_idx }" /> </td>
+        <td><form:input path="member.idx" value="${ schedule.member.idx }" /> </td>
       </tr>
      
      <tr>
         <td>index:</td>
-        <td><form:input path="sche_idx" disabled="true" /></td>        
+        <td><form:input path="idx" disabled="true" /></td>        
       </tr>
       <tr>
         <td>출발날:</td>
-        <td><form:input path="sche_start" /></td>        
+        <td><form:input path="start" /></td>        
       </tr>
       <tr>
         <td>도착날:</td>
-        <td><form:input path="sche_end" /></td>
+        <td><form:input path="end" /></td>
       </tr>
       <tr>
         <td>인원:</td>
-        <td><form:input path="sche_num" /></td>
+        <td><form:input path="num" /></td>
       </tr>
       <tr>
         <td>장소:</td>
-        <td><form:input path="sche_loca" /></td>
+        <td><form:input path="loca" /></td>
       </tr> 
     </table>
     <hr />
     <div>
       <button type="submit" class="btn">저장</button>
-      <c:if test="${ schedule.sche_idx > 0 }">
-        <a href="delete?mem_idx=${ schedule.sche_idx }" class="btn" data-confirm-delete>삭제</a>
+      <c:if test="${ schedule.idx > 0 }">
+        <a href="delete?mem_idx=${ schedule.idx }" class="btn" data-confirm-delete>삭제</a>
       </c:if>
       <a href="list" class="btn">목록으로</a>
     </div>

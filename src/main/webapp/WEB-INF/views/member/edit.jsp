@@ -22,11 +22,11 @@
 <body>
 <div class="container">
   <form:form method="post" modelAttribute="member">
-    <div class="title">회원 ${ member.mem_idx > 0  ? "수정" : "등록" }</div>
+    <div class="title">회원 ${ member.idx > 0  ? "수정" : "등록" }</div>
     <table>
      <tr>
         <td>index:</td>
-        <td><form:input path="mem_idx" /></td>        
+        <td><form:input path="idx" /></td>        
       </tr>
       <tr>
         <td>아이디:</td>
@@ -34,33 +34,33 @@
       </tr>
       <tr>
         <td>비밀번호:</td>
-        <td><form:input path="mem_password" /></td>
+        <td><form:input path="password" /></td>
       </tr>
       <tr>
         <td>이름:</td>
-        <td><form:input path="mem_username" />></td>
+        <td><form:input path="username" />></td>
       </tr>
       <tr>
         <td>주소:</td>
-        <td><form:input path="mem_address" /></td>
+        <td><form:input path="address" /></td>
       </tr>
       <tr>
         <td>성별:</td>
         <td>
-          <form:radiobutton path="mem_gender" value="1" label="남자" />
-          <form:radiobutton path="mem_gender" value="2" label="여자" />
+          <form:radiobutton path="gender" value="1" label="남자" />
+          <form:radiobutton path="gender" value="2" label="여자" />
         </td>
       </tr>
       <tr>
         <td>이메일:</td>
-        <td><form:input path="mem_email" type="email" /></td>
+        <td><form:input path="email" type="email" /></td>
       </tr>
     </table>
     <hr />
     <div>
       <button type="submit" class="btn">저장</button>
-      <c:if test="${ member.mem_idx > 0 }">
-        <a href="delete?mem_idx=${ member.mem_idx }" class="btn" data-confirm-delete>삭제</a>
+      <c:if test="${ member.idx > 0 }">
+        <a href="delete?idx=${ member.idx }" class="btn" data-confirm-delete>삭제</a>
       </c:if>
       <a href="list" class="btn">목록으로</a>
     </div>
