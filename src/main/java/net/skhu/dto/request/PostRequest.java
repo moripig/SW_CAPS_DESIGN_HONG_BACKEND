@@ -19,7 +19,7 @@ public class PostRequest {
 
     private int date;
 
-    private int hit;
+    private int writeridx;
 
     private String cate;
 
@@ -32,7 +32,7 @@ public class PostRequest {
         this.loca = post.getLoca();
         this.member = post.getMember();
         this.date = post.getDate();
-        this.hit = post.getHit();
+        this.writeridx = post.getWriteridx();
         this.cate = post.getCate();
     }
 
@@ -68,8 +68,8 @@ public class PostRequest {
         this.date = date;
     }
 
-    public void setHit(int hit) {
-        this.hit = hit;
+    public void setWriteridx(int writeridx) {
+        this.writeridx = writeridx;
     }
 
     public void setCate(String cate) {
@@ -108,8 +108,8 @@ public class PostRequest {
         return date;
     }
 
-    public int getHit() {
-        return hit;
+    public int getWriteridx() {
+        return writeridx;
     }
 
     public String getCate() {

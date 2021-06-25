@@ -27,7 +27,7 @@ public class PostData {
 
     private int date;
 
-    private int hit;
+    private int writeridx;
 
     private String cate;
 
@@ -40,7 +40,7 @@ public class PostData {
         this.loca = post.getLoca();
         this.member = post.getMember();
         this.date = post.getDate();
-        this.hit = post.getHit();
+        this.writeridx = post.getWriteridx();
         this.cate = post.getCate();
     }
 
