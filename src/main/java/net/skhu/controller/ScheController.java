@@ -1,15 +1,21 @@
 package net.skhu.controller;
 
-import lombok.extern.slf4j.Slf4j;
-import net.skhu.entity.Sche;
-import net.skhu.service.ScheduleService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 //import org.springframework.stereotype.Controller;
 //import net.skhu.entity.Post;
 //import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import net.skhu.entity.Sche;
+import net.skhu.service.ScheduleService;
 
 //@ResponseBody
 @Slf4j
@@ -18,7 +24,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/schedule")
 public class ScheController {
-	/*
+
 	@Autowired
     ScheduleService scheduleService;
 
@@ -48,5 +54,5 @@ public class ScheController {
     public void editSchedule(@RequestBody Sche sche) {
         scheduleService.changeSchedule(sche);
     }
-    */
+
 }

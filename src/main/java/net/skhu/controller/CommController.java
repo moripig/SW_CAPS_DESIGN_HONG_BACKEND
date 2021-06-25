@@ -1,11 +1,20 @@
 package net.skhu.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.ArrayList;
+import java.util.List;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.dto.response.CommentData;
+import net.skhu.entity.Comm;
+import net.skhu.service.CommentService;
 
 //@ResponseBody
 @Slf4j
@@ -14,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping(path = "/comment")
 public class CommController {
-	/*
+
     @Autowired
     CommentService commentService;
 
@@ -38,5 +47,5 @@ public class CommController {
 //    public void createComment(@RequestBody Comm comm) {
 //        commentService.createComment(comm);
 //    }
-    */
+
 }
