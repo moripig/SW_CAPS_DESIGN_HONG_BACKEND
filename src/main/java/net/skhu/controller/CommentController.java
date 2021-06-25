@@ -15,7 +15,7 @@ import net.skhu.repository.CommentRepository;
 import net.skhu.repository.MemberRepository;
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping("bum/comment")
 public class CommentController {
 
     @Autowired

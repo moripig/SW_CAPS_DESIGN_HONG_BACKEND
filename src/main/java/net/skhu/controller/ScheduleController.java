@@ -14,7 +14,7 @@ import net.skhu.repository.MemberRepository;
 import net.skhu.repository.ScheduleRepository;
 
 @Controller
-@RequestMapping("/schedule")
+@RequestMapping("bum/schedule")
 public class ScheduleController {
 
 	@Autowired
