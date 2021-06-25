@@ -1,11 +1,20 @@
 package net.skhu.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.entity.Sche;
+import net.skhu.service.ScheduleService;
 
 @ResponseBody
 @Slf4j
@@ -13,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping(path = "/schedule")
 public class ScheController {
-	/*
+
 	@Autowired
     ScheduleService scheduleService;
 
@@ -37,5 +46,4 @@ public class ScheController {
     public void deleteSchedule(@RequestBody String response ){
         //userid + idx 한번에 받고 그걸 나눠서 처리하기.
     }
-    */
 }
