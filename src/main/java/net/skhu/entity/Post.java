@@ -30,7 +30,7 @@ public class Post {
 
     private int date;
 
-    private int hit;
+    private int writeridx;
 
     private String cate;
 
