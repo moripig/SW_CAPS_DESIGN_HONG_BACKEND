@@ -55,7 +55,7 @@ button {
 						<td>${ member.password }</td>
 						<td>${ member.userName }</td>
 						<td>${ member.gender }</td>
-						<td>${ member.saddress }</td>
+						<td>${ member.address }</td>
 					</tr>
 				</table>
 			</div>
