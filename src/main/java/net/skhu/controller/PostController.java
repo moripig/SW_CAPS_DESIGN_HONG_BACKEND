@@ -9,7 +9,9 @@ import net.skhu.dto.response.Response;
 import net.skhu.entity.Post;
 import net.skhu.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -22,22 +24,21 @@ import java.util.List;
 import java.util.Map;
 
 
-@ResponseBody
+//@ResponseBody
 @Slf4j
-@RequiredArgsConstructor
-@Controller
+//@RequiredArgsConstructor
+//@Controller
+@RestController
 @RequestMapping(path = "/post")
 public class PostController {
     @Autowired
     PostService postService;
 
-    //전체
-    @GetMapping(path = "/")
-    public List<PostData> board(@PageableDefault(size=6,sort="id",direction=Sort.Direction.DESC) Pageable pageable) {
-//        List<Post> list = postService.allPost();
-        Page<Post> list = postService.allPost(pageable);
+    //리스트(페이지처리)
+    @GetMapping(path = "/{page}")
+    public List<PostData> board(@PathVariable("page") int page) {
+        Page<Post> list = postService.pagePost(PageRequest.of(page,6, Sort.by("id").descending()));
         List<PostData> board = new ArrayList<>();
-
 
         for(int i=0; i<list.getNumberOfElements(); i++) {
             PostData postData = new PostData(list.getContent().get(i));
@@ -47,10 +48,9 @@ public class PostController {
     }
 
     //제목으로 검색 시
-    @GetMapping(path = "/title/{title}")
-    public List<PostData> searchTitle(@PathVariable("title") String title, @PageableDefault(size=6,sort="id",direction=Sort.Direction.DESC) Pageable pageable) {
-        //List<Post> list = postService.searchTitle(title);
-        Page<Post> list = postService.searchTitle(title,pageable);
+    @GetMapping(path = "/title/{title}/{page}")
+    public List<PostData> searchTitle(@PathVariable("title") String title, @PathVariable("page") int page) {
+        Page<Post> list = postService.searchTitle(title,PageRequest.of(page,6,Sort.by("id").descending()));
         List<PostData> board = new ArrayList<>();
 
         for(int i=0; i<list.getNumberOfElements(); i++) {
@@ -72,7 +72,6 @@ public class PostController {
 
     @PostMapping(path = "/create")
     public void test(@RequestBody Post post) {
-        System.out.println(post + "\n");
         postService.creatPost(post);
     }
 

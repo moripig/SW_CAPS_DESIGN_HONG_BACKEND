@@ -22,9 +22,10 @@ public class ScheController {
 	@Autowired
     ScheduleService scheduleService;
 
+
+    //List<Sche> 리턴
     @GetMapping(path = "/user/{userid}")
     public List<Sche> schedule(@PathVariable("userid") int userid){
-        System.out.println(userid);
 //        List<Sche> mysche = scheduleService.searchSchedule(userid);
 //        for(int i=0; i<mysche.size(); i++) {
 //
@@ -34,13 +35,18 @@ public class ScheController {
 
     @PostMapping(path = "/create")
     public void createSchedule(@RequestBody Sche sche){
-        scheduleService.createSchedule(sche);
+         scheduleService.createSchedule(sche);
     }
 
 
-    @GetMapping(path = "/delete")
-    public void deleteSchedule(@RequestBody String response ){
-        //userid + idx 한번에 받고 그걸 나눠서 처리하기.
+    @PostMapping(path = "/delete")
+    public void deleteSchedule(@RequestBody int idx){
+        scheduleService.deleteSchedule(idx);
+    }
+
+    @PostMapping("/edit")
+    public void editSchedule(@RequestBody Sche sche) {
+        scheduleService.changeSchedule(sche);
     }
     */
 }
