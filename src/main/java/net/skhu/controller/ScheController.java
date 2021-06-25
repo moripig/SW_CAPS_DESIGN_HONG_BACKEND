@@ -1,13 +1,13 @@
 package net.skhu.controller;
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.entity.Post;
 import net.skhu.entity.Sche;
 import net.skhu.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+//import org.springframework.stereotype.Controller;
+//import net.skhu.entity.Post;
+//import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
