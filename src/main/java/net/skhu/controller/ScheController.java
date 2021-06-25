@@ -1,16 +1,21 @@
 package net.skhu.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.entity.Sche;
+import net.skhu.service.ScheduleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+//import org.springframework.stereotype.Controller;
+//import net.skhu.entity.Post;
+//import lombok.RequiredArgsConstructor;
 
-@ResponseBody
+import java.util.List;
+
+//@ResponseBody
 @Slf4j
-@RequiredArgsConstructor
-@Controller
+//@RequiredArgsConstructor
+//@Controller
+@RestController
 @RequestMapping(path = "/schedule")
 public class ScheController {
 	/*
