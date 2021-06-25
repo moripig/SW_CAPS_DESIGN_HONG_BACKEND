@@ -2,6 +2,7 @@ package net.skhu.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.entity.Post;
 import net.skhu.entity.Sche;
 import net.skhu.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +11,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@ResponseBody
+//@ResponseBody
 @Slf4j
-@RequiredArgsConstructor
-@Controller
+//@RequiredArgsConstructor
+//@Controller
+@RestController
 @RequestMapping(path = "/schedule")
 public class ScheController {
     @Autowired
     ScheduleService scheduleService;
 
+
+    //List<Sche> 리턴
     @GetMapping(path = "/user/{userid}")
     public List<Sche> schedule(@PathVariable("userid") int userid){
-        System.out.println(userid);
 //        List<Sche> mysche = scheduleService.searchSchedule(userid);
 //        for(int i=0; i<mysche.size(); i++) {
 //
@@ -31,12 +34,17 @@ public class ScheController {
 
     @PostMapping(path = "/create")
     public void createSchedule(@RequestBody Sche sche){
-        scheduleService.createSchedule(sche);
+         scheduleService.createSchedule(sche);
     }
 
 
-    @GetMapping(path = "/delete")
-    public void deleteSchedule(@RequestBody String response ){
-        //userid + idx 한번에 받고 그걸 나눠서 처리하기.
+    @PostMapping(path = "/delete")
+    public void deleteSchedule(@RequestBody int idx){
+        scheduleService.deleteSchedule(idx);
+    }
+
+    @PostMapping("/edit")
+    public void editSchedule(@RequestBody Sche sche) {
+        scheduleService.changeSchedule(sche);
     }
 }

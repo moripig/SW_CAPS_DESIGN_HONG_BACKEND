@@ -24,7 +24,6 @@ public class LocationController {
     @GetMapping("/search/{idx}")
     public Location getLoc(@PathVariable("idx") int loc_idx) {
         Location location = locationService.searchId(loc_idx);
-        System.out.println(location);
 
         return location;
     }

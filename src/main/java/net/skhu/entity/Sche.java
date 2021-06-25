@@ -15,7 +15,7 @@ public class Sche {
     @Id
     int idx;
 
-    String where;
+    String place;
 
     int start;
 
@@ -23,4 +23,5 @@ public class Sche {
 
     int userid;
 
+    int total;
 }

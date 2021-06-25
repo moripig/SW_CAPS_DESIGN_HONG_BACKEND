@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ResponseBody
+//@ResponseBody
 @Slf4j
-@RequiredArgsConstructor
-@Controller
+//@RequiredArgsConstructor
+//@Controller
+@RestController
 @RequestMapping(path = "/comment")
 public class CommController {
     @Autowired
@@ -23,7 +24,6 @@ public class CommController {
 
     @GetMapping(path = "/all/{postidx}")
     public List<CommentData> commentList(@PathVariable("postidx") int postidx) {
-        System.out.println(postidx);
         List<Comm> list = commentService.findComment(postidx);
         List<CommentData> commentDataList = new ArrayList<>();
 
@@ -35,7 +35,6 @@ public class CommController {
     }
     @PostMapping(path = "/create")
     public void createComment(@RequestBody Comm comm) {
-        System.out.println("생성연결");
         commentService.createComment(comm);
     }
 
